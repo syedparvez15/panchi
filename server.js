@@ -68,7 +68,7 @@ app.post('/chat', async (req, res) => {
     const { message, sessionId } = req.body;
     if (!chatSessions[sessionId]) chatSessions[sessionId] = [];
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     const fullMessage = CAFE_CONTEXT + message;
     const chat = model.startChat({ history: chatSessions[sessionId] });
     const result = await chat.sendMessage(fullMessage);
